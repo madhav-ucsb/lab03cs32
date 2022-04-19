@@ -18,11 +18,6 @@ int main() {
 
   sr.insertAtTail(s);
 
-  cout<<"going"<<endl;
-
-  std::string v = sr.toString();
-
-  cout<<v<<endl;
   
 
   ASSERT_EQUALS("[[Phill Conrad,1234567]]",sr.toString());

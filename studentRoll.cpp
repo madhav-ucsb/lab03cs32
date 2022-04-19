@@ -18,7 +18,7 @@ void StudentRoll::insertAtTail(const Student &s) {
 
   p->s = new Student(s.getName() , s.getPerm());
 
-  std::cout<<p->s->getName()<<std::endl;
+  //std::cout<<p->s->getName()<<std::endl;
   (*p).next = nullptr;// (3) Set p's next field to NULL
 
   if (this->head == nullptr) {
@@ -37,7 +37,7 @@ void StudentRoll::insertAtTail(const Student &s) {
     
   } 
   else {
-    std::cout<<"entering else part"<<std::endl;
+    //std::cout<<"entering else part"<<std::endl;
     this->tail->next = p;// Add p at the end of the list.   
     this->tail = this->tail->next;
     // (5) The current node at the tail? Make it point to p instead of NULL
