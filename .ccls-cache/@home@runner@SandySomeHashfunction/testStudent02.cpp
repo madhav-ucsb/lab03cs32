@@ -21,6 +21,7 @@ int main() {
   Student s1(s);
   Student s2(s);
   Student s3(s);
+  std::cout<<"reached"<<std::endl;
 
   s.setName(name1);
   ASSERT_EQUALS(name1,s.getName());

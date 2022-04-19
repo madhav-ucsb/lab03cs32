@@ -24,13 +24,13 @@ void Student::setPerm(const int permNumber) {
 }
 
 void Student::setName(const char * const name) {
+
   this->name = new char[strlen(name)+1];
   strcpy(this->name,name);
 }
 
 
 Student::Student(const Student &orig) {
-  delete this;
   this->setName(orig.getName());
   this->setPerm(orig.getPerm());
 }
@@ -38,7 +38,7 @@ Student::Student(const Student &orig) {
 Student::~Student() {
   if (this->name!=nullptr)
   {
-    delete [] name;
+    delete this->name;
   }
 
 }
