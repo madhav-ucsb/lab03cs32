@@ -106,12 +106,16 @@ StudentRoll::~StudentRoll() {
     {
       temp = h->next;
 
+
+      delete h->s;
+
       
 
       delete h;
 
       h = temp;
     }
+    head = nullptr;  
 
 }
 
@@ -125,6 +129,23 @@ StudentRoll & StudentRoll::operator =(const StudentRoll &right ) {
 
   // TODO... Here is where there is code missing that you need to 
   // fill in...
+  Node *h = this->head;
+
+
+
+  while(h)
+  {
+    Node* temp = h->next;
+
+
+    delete h->s;
+
+      
+
+    delete h;
+
+    h = temp;
+  }
   this->head = nullptr;
   this->tail = nullptr;
 
@@ -133,12 +154,12 @@ StudentRoll & StudentRoll::operator =(const StudentRoll &right ) {
     return (*this);
   }
 
-  Node* temp = right.head;
+  Node* r = right.head;
 
-  while(temp)
+  while(r)
   {
-    (*this).insertAtTail(*temp->s);
-    temp = temp->next;
+    (*this).insertAtTail(*(r->s));
+    r = r->next;
       
   }
 
