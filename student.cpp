@@ -12,7 +12,9 @@ Student::Student(const char *const named, int perm) {
 
 int Student::getPerm() const { return perm; }
 
-char const* Student::getName() const { return name; }
+const char * const Student::getName() const 
+{ return name; 
+  }
 
 void Student::setPerm(const int permNumber) { perm = permNumber; }
 

@@ -9,7 +9,7 @@ class Student {
   Student(const char * const named, int perm);
 
   int getPerm() const;
-  char const* getName() const;
+  const char * const getName() const;
 
   void setPerm(const int perm);
   void setName(const char * const named);
