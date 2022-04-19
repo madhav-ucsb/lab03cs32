@@ -3,33 +3,38 @@
 #include <iostream>
 #include <string>
 
-Student::Student(const char *const name, int perm) {
-  this->setName(name);
+Student::Student(const char *const named, int perm) {
+  this->name = new char[strlen(named)+1];
+
+  strcpy(this->name, named );
   this->setPerm(perm);
 }
 
 int Student::getPerm() const { return perm; }
 
-const char *const Student::getName() const { return name; }
+char const* Student::getName() const { return name; }
 
 void Student::setPerm(const int permNumber) { perm = permNumber; }
 
-void Student::setName(const char *const name) {
+void Student::setName(const char *const named) {
 
-  this->name = nullptr;
 
-  this->name = new char[strlen(name) + 1];
-  strcpy(this->name, name);
+
+  this->name = new char[strlen(named) + 1];
+  strcpy(this->name, named);
 }
 
 Student::Student(const Student &orig) {
-  this->setName(orig.getName());
+
+
+  name = new char[strlen(orig.getName()) + 1];
+  strcpy(name, orig.getName());
   this->setPerm(orig.getPerm());
 }
 
 Student::~Student() {
   if (this->name != nullptr) {
-    delete name;
+    delete[] name;
   }
 }
 
@@ -40,7 +45,8 @@ Student &Student::operator=(const Student &right) {
 
   if (&right == this)
     return (*this);
-  this->setName(right.getName());
+  name = new char[strlen(right.getName()) + 1];
+  strcpy(name, right.getName());
   this->setPerm(right.getPerm());
 
   // TODO... Here is where there is code missing that you need to

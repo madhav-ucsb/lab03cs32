@@ -6,13 +6,13 @@
 class Student {
 
  public:
-  Student(const char * const name, int perm);
+  Student(const char * const named, int perm);
 
   int getPerm() const;
-  const char * const getName() const;
+  char const* getName() const;
 
   void setPerm(const int perm);
-  void setName(const char * const name);
+  void setName(const char * const named);
 
   Student(const Student &orig);
   ~Student();
